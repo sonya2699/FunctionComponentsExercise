@@ -9,10 +9,10 @@ function Ghostbusters() {
         );
 // #2a. Below the ReactDOM Render method, create another function component called Tagline that returns the following text inside of an h1 element "We're ready to believe you."
 
-function Tagline (){
+function Tagline ()
     return <h1>We're ready to believe you</h1>;
 }
-}
+
 
 // #2b. Below the Tagline function component, use the ReactDOM Render method again to render/display the Tagline function component in the div with the id of "root" in the HTML file (NOTE: Since only one React component can be rendered/displayed in an HTML element, the message from the Ghostbusters component will be replaced by the message in the Tagline component. You can comment out the first ReactDOM Render method if you would like, but it is not necessary)
 ReactDOM.render(
@@ -22,10 +22,12 @@ ReactDOM.render(
 
 // #3a. Create another function component called Janine that returns the following text inside of two separate h2 elements. First h2 element text: "I've quit better jobs than this.". Second h2 element text: "Ghostbusters, whaddya want?". (HINT: Remember only one parent/top element can be returned from a component)
 function Janine(){
+    return(
     <div>
     <h2>I've quit better jobs than this.</h2>,
     <h2>Ghostbusters,whaddya want?</h2>
     </div>
+    );
 }
 
 // #3b. Below the Janine function component, use the ReactDOM Render method again to render/display the Janine function component in the div with the id of "root" in the HTML file
@@ -97,7 +99,7 @@ return (
       <h1>{w} had the talent</h1>
     </section>
   );
-}
+
 // #6d. Below the ToolsTalent function component, use the ReactDOM Render method again to render/display the ToolsTalent function component in the div with the id of "root" in the HTML file
 ReactDOM.render(
     // <Ghostbusters />,
@@ -130,14 +132,26 @@ ReactDOM.render(
 // Bonus
 
 // #8a. Below the ReactDOM Render method, create another function component called DiceRoll.
+function DiceRoll (){
 
 // #8b. Inside the function component use Math.random to return a random number between 1 and 6 and set it to const variable called "die1"
+const die1 = Math.floor(Math.random() * 6) + 1;
 
 // #8c. Below the die1 variable, use Math.random again to return a random number between 1 and 6 and set it to const variable called "die2"
+const die2 = Math.floor(Math.random()*6+1);
 
 // #8d. Below the die2 variable, have the DiceRoll function component return an h1 element. Inside the h1 element use a TERNARY that…
 // Sets the text for the h1 to "SNAKE EYES" if both die1 and die2 are equal to 1 
 // Or
 // If either die1 or die2 is NOT equal to 1 sets the text for the h1 to the values for each die like shown in this example: 2 & 5.
-
+return (
+    <div>
+        <h1>{(die1 === 1 && die2 === 1) ? `SNAKE EYES` : `${die1} and ${die2}`}</h1>
+    </div> 
+)
+}
 // #8e. Below the DiceRoll function component, use the ReactDOM Render method again to render/display the DiceRoll function component in the div with the id of "root" in the HTML file
+ReactDOM.render(
+    <DiceRoll/>,
+    document.getElementById(`root`)
+);
